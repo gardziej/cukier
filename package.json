@@ -4,8 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf dist && webpack src/index.js dist/bundle.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "prg",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gardziej/cukier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gardziej/cukier/issues"
+  },
+  "homepage": "https://github.com/gardziej/cukier#readme",
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "webpack": "^3.3.0"
+  }
 }

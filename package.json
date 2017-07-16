@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack src/index.js dist/bundle.js"
+    "build": "rimraf dist && webpack",
+    "dev": "webpack-dev-server"
   },
   "author": "prg",
   "license": "ISC",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/gardziej/cukier#readme",
   "devDependencies": {
     "rimraf": "^2.6.1",
-    "webpack": "^3.3.0"
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
   }
 }

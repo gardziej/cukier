@@ -1,7 +1,6 @@
 import Vector2 from './Vector2';
 
 export default class Canvas {
-
 	div: HTMLElement;
   canvasOffset: Vector2;
   canvas: HTMLCanvasElement;
@@ -32,9 +31,9 @@ export default class Canvas {
   resize() {
     this.canvasOffset = Vector2.zero;
 
-    if (typeof this.canvas === "undefined") {
+    if (typeof this.canvas === 'undefined') {
       this.canvas = document.createElement('canvas');
-      this.ctx = this.canvas.getContext("2d");
+      this.ctx = this.canvas.getContext('2d');
       this.canvas.setAttribute('id', this.id);
       this.div.appendChild(this.canvas);
     }
@@ -48,7 +47,7 @@ export default class Canvas {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
 
-    this.canvas.style.cursor = "default";
+    this.canvas.style.cursor = 'default';
   };
 
   setSize(x, y) {

@@ -10,8 +10,8 @@ import Sugar from './Sugar';
 import Faucet from './Faucet';
 
 export default class App {
-  spritesStillLoading: number = 0;
-  totalSprites: number = 0;
+  spritesStillLoading = 0;
+  totalSprites = 0;
   canvas: Canvas;
   sugar_canvas: Canvas;
   mouse: Mouse;

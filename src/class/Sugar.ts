@@ -3,7 +3,6 @@ import Contener from '../system/Contener';
 import App from './App';
 
 export default class Sugar {
-
   app: App;
   gridSize: number;
   cols: number;
@@ -47,9 +46,14 @@ export default class Sugar {
   };
 
   setValue(i: number, val: number) {
-    if (typeof val === 'undefined') val = 1;
-    if (val == 0) this.tiles.remove(i);
-    else this.tiles.add(i);
+    if (typeof val === 'undefined') {
+      val = 1;
+    }
+    if (val === 0) {
+      this.tiles.remove(i);
+    }
+    else { this.tiles.add(i);
+    }
     this.grid[i] = val;
   };
 
@@ -73,7 +77,9 @@ export default class Sugar {
   checkEnvironment(i: number): boolean {
     const pix = this.findPixels(i);
     for (let j = 0, len = pix.length; j < len; j++) {
-      if (this.drawerData[pix[j] * 4 + 3] !== 0) return true;
+      if (this.drawerData[pix[j] * 4 + 3] !== 0) {
+        return true;
+      }
     }
     return false;
   };
@@ -119,9 +125,15 @@ export default class Sugar {
       }
       if (this.takeValue(index) === 1) {
         randNumber = myHelper.getRandomInt(p, q);
-        if (randNumber === 0) this.move(index, -1 * randX, 1);
-        else if (randNumber === 20) this.move(index, randX, 1);
-        else this.move(index, 0, 1);
+        if (randNumber === 0) {
+          this.move(index, -1 * randX, 1);
+        }
+        else if (randNumber === 20) {
+          this.move(index, randX, 1);
+        }
+        else {
+          this.move(index, 0, 1);
+        }
       }
     }
   };

@@ -3,7 +3,6 @@ import myHelper from '../system/myHelper';
 import App from './App';
 
 export default class Faucet {
-
   app: App;
   position: Vector2;
   vol: number;

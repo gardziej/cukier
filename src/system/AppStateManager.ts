@@ -10,7 +10,7 @@ export default class AppStateManager {
     this.gameStates[id] = {
       state: gamestate
     };
-    if (typeof master !== "undefined" && master === true) {
+    if (typeof master !== 'undefined' && master === true) {
       this.gameStates[id].type = 'master';
     }
     this.currentGameState = gamestate;
@@ -18,13 +18,13 @@ export default class AppStateManager {
   }
 
   switchTo(id) {
-    if (typeof this.gameStates[id] !== "undefined") {
+    if (typeof this.gameStates[id] !== 'undefined') {
       this.currentGameState = this.gameStates[id].state;
       if (this.currentGameStateId !== id) {
         this.lastGameStateId = this.currentGameStateId;
       }
       this.currentGameStateId = id;
-      if (this.gameStates[id].type === "master") {
+      if (this.gameStates[id].type === 'master') {
         this.lastMasterStateId = id;
       }
       return this;
@@ -39,8 +39,7 @@ export default class AppStateManager {
 
   getCurrentGameStateId() {
     if (this.currentGameStateId !== null) {
-      return this.currentGameStateId;
-		}
+      return this.currentGameStateId; }
     return false;
   }
 

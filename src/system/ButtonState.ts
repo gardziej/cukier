@@ -1,5 +1,4 @@
-export default class ButtonState
-{
-    down = false;
-    pressed = false;
+export default class ButtonState {
+  down = false;
+  pressed = false;
 }

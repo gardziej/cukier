@@ -1,21 +1,29 @@
-var path = require('path');
-var webpack = require('webpack');
+ const path = require('path');
+ const webpack = require('webpack');
 
-var DEVELOPMENT = process.env.NODE_ENV === "development";
-var PRODUCTION = process.env.NODE_ENV === "production";
+ const DEVELOPMENT = process.env.NODE_ENV === "development";
+ const PRODUCTION = process.env.NODE_ENV === "production";
 
-const entry = PRODUCTION
+const  entry = PRODUCTION
 	?	[
-			'./src/index.js'
+			'./src/index.ts'
 		]
 	:	[
-			'./src/index.js',
+			'./src/index.ts',
 			'webpack/hot/dev-server',
 			'webpack-dev-server/client?http://localhost:8080'
 		];
 
-const plugins = PRODUCTION
-  ? []
+const  plugins = PRODUCTION
+  ? [
+      new webpack.optimize.UglifyJsPlugin({
+        comments: true,
+        mangle: false,
+        compress: {
+          warnings: true
+        }
+      })
+    ]
   : [
       new webpack.HotModuleReplacementPlugin()
     ];
@@ -27,5 +35,15 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     publicPath: '/dist/',
     filename: 'bundle.js'
-  }
+  },
+  resolve: {
+      // Add `.ts` and `.tsx` as a resolvable extension.
+      extensions: ['.ts', '.tsx', '.js'] // note if using webpack 1 you'd also need a '' in the array as well
+    },
+    module: {
+      loaders: [
+        // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+        { test: /\.tsx?$/, loader: 'ts-loader' }
+      ]
+    }
 }

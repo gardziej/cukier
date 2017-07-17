@@ -1,10 +1,10 @@
-var WebpackDevServer = require('webpack-dev-server');
-var webpack = require('webpack');
-var config = require('./webpack.config.js');
-var path = require('path');
+ const WebpackDevServer = require('webpack-dev-server');
+ const webpack = require('webpack');
+ const config = require('./webpack.config.js');
+ const path = require('path');
 
-var compiler = webpack(config);
-var server = new WebpackDevServer(compiler, {
+ const compiler = webpack(config);
+ const server = new WebpackDevServer(compiler, {
 	hot: true,
 	filename: config.output.filename,
 	publicPath: config.output.publicPath,

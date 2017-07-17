@@ -11,5 +11,17 @@
         <canvas id="canvas" width=900 height=600></canvas>
     </div>
     <script src="dist/bundle.js"></script>
+    <script src="xstats.js"></script>
+    <script>
+      var stats = new xStats();
+      document.body.appendChild(stats.element);
+    </script>
+    <style>
+      .xstats {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+    </style>
   </body>
 </html>

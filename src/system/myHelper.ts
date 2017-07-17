@@ -2,36 +2,36 @@ const myHelper = {
 
   getRandomBin(): number {
     if (Math.random() > .5) {
-			return 1;
-		}
+      return 1;
+    }
     return -1;
   },
 
   getRandomInt(min, max): number {
     if (typeof min === 'undefined') {
-			min = 0;
-		}
+      min = 0;
+    }
     if (typeof max === 'undefined') {
-			max = 100;
-		}
+      max = 100;
+    }
     const wynik = Math.floor(Math.random() * (max - min + 1)) + min;
     return wynik;
   },
 
   shuffleArray(o): number {
     for (let j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) {
-		};
+    };
     return o;
   },
 
   pickRandomProperty(obj): number {
     let result;
     let count = 0;
-    for (let prop in obj) {
+    for (const prop in obj) {
       if (Math.random() < 1 / ++count) {
         result = prop;
-			}
-		}
+      }
+    }
     return result;
   },
 

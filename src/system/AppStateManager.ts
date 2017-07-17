@@ -34,7 +34,7 @@ export default class AppStateManager {
   escape() {
     if (this.lastMasterStateId !== null) {
       this.switchTo(this.lastMasterStateId);
-		}
+    }
   }
 
   getCurrentGameStateId() {
@@ -46,31 +46,31 @@ export default class AppStateManager {
   getLastMasterStateId() {
     if (this.lastMasterStateId !== null) {
       return this.lastMasterStateId;
-		}
+    }
     return false;
   }
 
   handleInput(delta) {
     if (this.currentGameState !== null) {
       this.currentGameState.handleInput(delta);
-		}
+    }
   }
 
   update(delta) {
     if (this.currentGameState !== null) {
       this.currentGameState.update(delta);
-		}
+    }
   }
 
   draw() {
     if (this.currentGameState !== null) {
       this.currentGameState.draw();
-		}
+    }
   }
 
   reset() {
     if (this.currentGameState !== null) {
       this.currentGameState.reset();
-		}
+    }
   }
 }

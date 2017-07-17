@@ -1,4 +1,4 @@
-let Key = {
+const Key = {
     none: 0,
     back: 8,
     tab: 9,

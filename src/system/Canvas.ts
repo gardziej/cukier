@@ -1,14 +1,14 @@
 import Vector2 from './Vector2';
 
 export default class Canvas {
-	div: HTMLElement;
+  div: HTMLElement;
   canvasOffset: Vector2;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   width: number;
   height: number;
 
-  constructor(private id:string, private divId: string) {
+  constructor(private id: string, private divId: string) {
     this.id = id;
     this.div = document.getElementById(divId);
     this.resize();

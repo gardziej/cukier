@@ -48,13 +48,14 @@ export default class Keyboard {
   }
 
   isAllowed(code): boolean {
-    if ((code >= 48 && code <= 57) || (code >= 65 && code <= 90) || (code === 32)) {
+    if ((code >= 37 && code <= 40) || (code >= 48 && code <= 57) || (code >= 65 && code <= 90) || (code === 32)) {
       return true;
     }
     return false;
   }
 
   pressed(key): boolean {
+    console.log(this.keyStates[key]);
     return this.keyStates[key].pressed;
   }
 

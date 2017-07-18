@@ -3,6 +3,7 @@ import Vector2 from '../../system/Vector2';
 import Drawer from '../Drawer';
 import Sugar from '../Sugar';
 import Faucet from '../Faucet';
+import Gravity from '../../enums/Gravity';
 
 export default class TitlePageState {
     app: App;
@@ -35,9 +36,9 @@ export default class TitlePageState {
       this.app.canvas.ctx.fill();
 
       this.app.drawer = new Drawer(this.app);
-      this.app.sugar = new Sugar(this.app);
+      this.app.sugar = new Sugar(this.app, true, Gravity.DOWN);
 
-      this.app.faucet = new Faucet(new Vector2(400, 0), this.app, 10 * 1000);
+      this.app.faucet = new Faucet(new Vector2(400, 10), this.app, 10 * 1000);
     }
 
 }

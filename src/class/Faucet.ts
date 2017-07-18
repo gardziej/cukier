@@ -10,13 +10,13 @@ export default class Faucet {
   frequencyCounter: number;
   width: number;
 
-  constructor(position, parent, vol) {
+  constructor(position, parent, vol = 5000) {
     this.app = parent;
     this.position = new Vector2(Math.ceil(position.x / this.app.sugar.gridSize), Math.ceil(position.y / this.app.sugar.gridSize));
     this.vol = vol;
     this.frequency = 0.01;
     this.frequencyCounter = 0;
-    this.width = 2;
+    this.width = 1;
   }
 
   positionToPoint(position): number {

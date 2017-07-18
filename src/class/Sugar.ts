@@ -1,6 +1,7 @@
 import myHelper from '../system/myHelper';
 import Contener from '../system/Contener';
 import App from './App';
+import Gravity from '../enums/Gravity';
 
 export default class Sugar {
   app: App;
@@ -14,17 +15,19 @@ export default class Sugar {
   open: boolean;
   drawerData: Uint8ClampedArray;
   imgData: any;
+  gravity: Gravity;
 
-  constructor(parent) {
+  constructor(parent, open = true, gravity = Gravity.DOWN) {
     this.app = parent;
     this.gridSize = 2;
+    this.gravity = gravity;
     this.cols = Math.ceil(this.app.canvas.width / this.gridSize);
     this.rows = Math.ceil(this.app.canvas.height / this.gridSize);
     this.grid = new Array(this.cols * this.rows);
     this.tiles = new Contener();
     this.gridLength = this.grid.length;
     this.count = 0;
-    this.open = false;
+    this.open = open;
     this.drawerData = this.app.drawer.data;
     this.imgData = null;
   }
@@ -87,10 +90,17 @@ export default class Sugar {
   move(i: number, x: number, y: number) {
     let newI;
     if (this.check(i)) {
+
       newI = i + y * this.cols + x;
-      if (this.open && newI >= this.grid.length) {
+
+      if (this.open && newI >= this.grid.length && this.gravity === Gravity.DOWN) {
         newI = i % this.cols;
       }
+
+      if (this.open && newI <= 0 && this.gravity === Gravity.UP) {
+        newI = i + this.cols * (this.rows - 1);
+      }
+
       if (!this.check(newI)) {
         this.setValue(i, 0);
         this.setValue(newI, 2);
@@ -111,7 +121,9 @@ export default class Sugar {
   };
 
   update(delta) {
+    const direction = (this.gravity === Gravity.DOWN) ? 1 : -1;
     this.prepare();
+
     const p = 0;
     const q = 20;
     let randNumber;
@@ -125,14 +137,14 @@ export default class Sugar {
       }
       if (this.takeValue(index) === 1) {
         randNumber = myHelper.getRandomInt(p, q);
-        if (randNumber === 0) {
-          this.move(index, -1 * randX, 1);
+        if (randNumber === p) {
+          this.move(index, -1 * randX, direction);
         }
-        else if (randNumber === 20) {
-          this.move(index, randX, 1);
+        else if (randNumber === q) {
+          this.move(index, randX, direction);
         }
         else {
-          this.move(index, 0, 1);
+          this.move(index, 0, direction);
         }
       }
     }

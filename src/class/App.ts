@@ -8,6 +8,8 @@ import Drawer from './Drawer';
 import AppStateManager from '../system/AppStateManager';
 import Sugar from './Sugar';
 import Faucet from './Faucet';
+import Key from '../system/Key';
+import Gravity from '../enums/Gravity';
 
 export default class App {
   spritesStillLoading = 0;
@@ -42,10 +44,18 @@ export default class App {
 
   handleInput() {
 
+    if (this.keyboard.pressed(Key.up)) {
+      this.sugar.gravity = Gravity.UP;
+    }
+    if (this.keyboard.pressed(Key.down)) {
+      this.sugar.gravity = Gravity.DOWN;
+    }
+
   };
 
   mainLoop() {
     const delta = 1 / 60;
+    this.handleInput();
     this.appStateManager.handleInput(delta);
     this.appStateManager.update(delta);
     this.appStateManager.draw();

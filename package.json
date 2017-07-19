@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "build": "rimraf dist/* && cross-env NODE_ENV=production webpack",
+    "build": "rimraf dist/* && cross-env NODE_ENV=production webpack && node deploy",
     "dev": "cross-env NODE_ENV=development node dev-server.js",
     "deploy": "node deploy"
   },

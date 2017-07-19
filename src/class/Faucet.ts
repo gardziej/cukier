@@ -17,6 +17,12 @@ export default class Faucet {
     this.frequency = 0.01;
     this.frequencyCounter = 0;
     this.width = 1;
+
+
+        for (let i = 0; i < 1000; i++) {
+          this.app.sugar.add(myHelper.getRandomInt(1, 1000));
+        }
+
   }
 
   positionToPoint(position): number {
@@ -24,6 +30,7 @@ export default class Faucet {
   };
 
   update(delta) {
+
     const halfWidth = Math.ceil(this.width / 2);
     if (this.vol > 0) {
       this.frequencyCounter += delta;

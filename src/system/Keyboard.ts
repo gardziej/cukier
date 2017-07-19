@@ -55,7 +55,6 @@ export default class Keyboard {
   }
 
   pressed(key): boolean {
-    console.log(this.keyStates[key]);
     return this.keyStates[key].pressed;
   }
 

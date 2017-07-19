@@ -16,13 +16,13 @@ const  entry = PRODUCTION
 
 const  plugins = PRODUCTION
   ? [
-      new webpack.optimize.UglifyJsPlugin({
-        comments: true,
-        mangle: false,
-        compress: {
-          warnings: true
-        }
-      })
+      // new webpack.optimize.UglifyJsPlugin({
+      //   comments: true,
+      //   mangle: false,
+      //   compress: {
+      //     warnings: false
+      //   }
+      // })
     ]
   : [
       new webpack.HotModuleReplacementPlugin()

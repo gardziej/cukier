@@ -1,6 +1,8 @@
  const path = require('path');
  const webpack = require('webpack');
 
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
  const DEVELOPMENT = process.env.NODE_ENV === "development";
  const PRODUCTION = process.env.NODE_ENV === "production";
 
@@ -23,6 +25,12 @@ const  plugins = PRODUCTION
       //     warnings: false
       //   }
       // })
+
+      new CopyWebpackPlugin([
+        { from: 'source' }
+      ])
+
+
     ]
   : [
       new webpack.HotModuleReplacementPlugin()
